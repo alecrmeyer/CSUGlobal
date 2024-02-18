@@ -1,0 +1,15 @@
+Pseudo Code: 
+
+Part 1:
+	num1 = user_input()
+    num2 = user_input()
+    sum = num1 + num2
+    difference = num1 - num2
+	output sum and difference
+
+Part 2:
+	num1 = user_input()
+    num2 = user_input()
+    product = num1 + num2
+    quotient = num1 - num2
+	output product and quotient

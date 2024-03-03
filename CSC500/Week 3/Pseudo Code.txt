@@ -1,0 +1,15 @@
+Pseudo Code: 
+
+Part 1:
+	cost_of_food = user_input()
+    tip = cost_of_food * tip_amount
+    tax = cost_of_food * tax_amount
+    total = cost_of_food + tip + tax
+    output tip, tax and total
+
+Part 2:
+	current_time = user_input()
+    alarm_time = user_input()
+    total_time = current_time + alarm_time
+    new_time = total_time % 24
+	output new_time

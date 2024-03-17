@@ -1,0 +1,22 @@
+Pseudo Code: 
+
+Part 1:
+	years = input()
+    for each year
+        for each month in year
+            add input() rainfall for the month to total
+    print rainfall stats
+
+Part 2:
+	number of books purchased = input()
+    if num < 2
+        0 points
+    if 2 =< num < 4 
+        5 points
+    if 4 =< num < 6 
+        15 points
+    if 6 =< num < 8 
+        30 points
+    else
+        60 points
+    print points

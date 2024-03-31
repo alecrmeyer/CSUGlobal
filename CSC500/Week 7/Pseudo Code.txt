@@ -1,0 +1,8 @@
+room_number_map
+instructor_map
+meeting_time_map
+
+course attributes = [room_number_map, instructor_map, meeting_time_map]
+course = input()
+for course attribute in course attributes
+    output the key value pair for the course attribute based on course input

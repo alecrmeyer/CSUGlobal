@@ -1,0 +1,11 @@
+item.py:
+    item class
+
+ShoppingCart.py:
+    shopping_cart class
+    shopping cart methods:
+
+main.py:
+    Prompt input
+    modify shopping cart
+    output shopping cart

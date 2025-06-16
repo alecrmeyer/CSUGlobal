@@ -1,0 +1,63 @@
+import cv2
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+dirname = os.path.dirname(__file__)
+
+# Obtain relative path for each image
+image_relative_dark_light = os.path.join(dirname, 'DarkLight.JPG')
+image_relative_white_light = os.path.join(dirname, 'LightWhite.JPG')
+
+# Read images from relative path
+image_dark_light = cv2.imread(image_relative_dark_light)
+image_white_light = cv2.imread(image_relative_white_light)
+
+# Convert the images to black and white
+image_dark_light_bw = cv2.cvtColor(image_dark_light, cv2.COLOR_BGR2GRAY)
+image_white_light_bw = cv2.cvtColor(image_white_light, cv2.COLOR_BGR2GRAY)
+
+# Standard global threshold with a value of 0.5 max itensity
+ret1,thresh1 = cv2.threshold(image_dark_light_bw,127,255,cv2.THRESH_BINARY)
+ret2,thresh2 = cv2.threshold(image_white_light_bw,127,255,cv2.THRESH_BINARY)
+
+# Mean adaptive threshold for both images 
+thresh_dark_light = cv2.adaptiveThreshold(image_dark_light_bw,255,cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY,9,3)
+thresh_white_light = cv2.adaptiveThreshold(image_white_light_bw,255,cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY,59,3)
+
+# Gaussing adaptive threshold for both images
+thresh_dark_light_gaus = cv2.adaptiveThreshold(image_dark_light_bw,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,9,3)
+thresh_white_light_gaus = cv2.adaptiveThreshold(image_white_light_bw,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,59,3)
+
+fig, axes = plt.subplots(4, 2, figsize=(10, 5)) # 3 row, 2 columns
+
+#=========Image Display=========#
+axes[0, 0].imshow(image_dark_light_bw, cmap='gray')
+axes[0, 0].set_title('Light on Dark')
+
+axes[0, 1].imshow(image_white_light_bw, cmap='gray')
+axes[0, 1].set_title('Light on Light')
+
+axes[1, 0].imshow(thresh1, cmap='gray')
+axes[1, 0].set_title('Light on Dark Global (v = 127)')
+
+axes[1, 1].imshow(thresh2, cmap='gray')
+axes[1, 1].set_title('Light on Light Global (v = 127)')
+
+axes[2, 0].imshow(thresh_dark_light, cmap='gray')
+axes[2, 0].set_title('Light on Dark Threshold Mean')
+
+axes[2, 1].imshow(thresh_white_light, cmap='gray') 
+axes[2, 1].set_title('Light on Light Threshold Mean')
+
+axes[3, 0].imshow(thresh_dark_light_gaus, cmap='gray')
+axes[3, 0].set_title('Light on Dark Threshold Gaussian')
+
+axes[3, 1].imshow(thresh_white_light_gaus, cmap='gray') 
+axes[3, 1].set_title('Light on Light Threshold Gaussian')
+
+for i in range(4):
+    for j in range(2):
+        axes[i, j].axis("off") 
+
+plt.tight_layout()
+plt.show()

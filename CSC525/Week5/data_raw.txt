@@ -1,0 +1,1 @@
+This is a text file which will be used to show how data augmentation can create a more robust machine learning model. Being able to train a model on augmentded data allows it to learn that random characters or word order may not always matter and that just piecing together the context of the text can be more important for generative AI tasks. 

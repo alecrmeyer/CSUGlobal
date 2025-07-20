@@ -1,0 +1,1 @@
+Th*Z is a text file which Eoll be used to dho! how data augm#nGatooM can cF3ate a more robust ,ach7nw IearniJT model. Being able to a train model on on augmentded data allows to learn that random characters order may not always matter and and that just piecing together context of the text more be be important for generative AI tasks.
